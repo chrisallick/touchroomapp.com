@@ -18,8 +18,11 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 */
 #wrapper { width: 1000px; height: 100%; position: relative; text-align: center; margin: 0 auto; }
 
-#store { position: absolute; top: 23px; left: 23px; width: 131px; height: 42px; z-index: 100; }
-#videothumb { cursor: pointer; position: absolute; bottom: 56px; left: 23px; width: 179px; height: 114px; z-index: 100; }
+#buttons { position: absolute; bottom: 70px; left: 347px; width: 312px; height: 43px; }
+
+#videothumb { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 149px; height: 43px; z-index: 100; }
+#store { position: absolute; top: 0px; right: 0px; width: 149px; height: 43px; z-index: 100; }
+
 #videothumb:active { -webkit-transform: scale(.95,.95);
 	-webkit-transition:all .1s ease-in;
 	-moz-transition:all .1s ease-in;
@@ -58,7 +61,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	INTERACTIVE INSTRUCTIONS
 */
 
-#instructions { width: 453px; margin: 0 auto; padding-top: 107px; position: relative;  }
+#instructions { width: 453px; margin: 0 auto; padding-top: 43px; position: relative;  }
 #instructions .instruction { display: none; }
 #instructions .on { display: block; }
 #instructions .instruction .copy-two { width: 453px; font: normal 22px 'GM'; color: #5b5b5b; margin: 0px auto 48px auto; }
