@@ -96,7 +96,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#humans").mousemove(function(e) {
+	$(document).mousemove(function(e) {
 		count++;
 		if( count == 50 ) {
 			var msg = client.createMessage("position",{
