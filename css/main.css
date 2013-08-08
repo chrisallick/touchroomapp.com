@@ -145,6 +145,21 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#videobutton, #store, #videobuttonmobile, #howitworksbutton { display: none; }
 	#howitworksbuttonmobile, #storemobile { display: block; }
 
+	.break { display: none; }
+
+	#instructions { width: 570px; }
+	#instructions .leftarrow { left: 61px; }
+	#instructions .rightarrow { right: 61px; }
+	#instructions .instruction .visual { left: 192px; }
+	#instructions .instruction p { font-size: 28px; line-height: 33px; }
+	#instructions .instruction .copy-two { line-height: 33px; margin: 0px auto 28px auto; }
+	#instructions .instruction .copy-one { line-height: 33px; margin: 0px auto 61px auto; }
+
+	#instructions .instruction .one { width: 371px; }
+	#instructions .instruction .two { width: 330px; }
+	#instructions .instruction .three { width: 447px; }
+	#instructions .instruction .four { width: 570px; }
+
 	/*
 		VIDEO PLAYER
 	*/
@@ -153,8 +168,17 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; padding-top: 180px; }
 
 	#footer { height: 100px; }
-	#footer .links { padding-top: 24px; width: 605px; }
-	#footer a { font-size: 34px; }
+	#footer .links { padding-top: 29px; width: 545px; }
+	#footer a { font-size: 30px; }
+
+	#legal { padding-top: 240px; }
+	#legal h2 { font-size: 21px; }
+	#legal li a { font-size: 22px; }
+
+	#about { padding-top: 50px; }
+	#about p { font-size: 26px; line-height: 32px; width: 560px; }
+	#about .betalogo { margin-bottom: 34px; }
+	#about .betalogo img { width: 100px; }
 }
 
 /*
@@ -163,17 +187,20 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 @media only screen and (max-height:715px) {
 	body,html { height: 1000px; }
 
-	#wrapper { width: 640px; height: 640px; }
+	#wrapper { width: 640px; height: 680px; }
 
-	#buttons { bottom: 50px; }
+	#buttons { bottom: 70px; }
 
 	#videocontainer { padding-top: 60px; }
 
 	#instructions { padding-top: 0px; }
-	#instructions .instruction .copy-two { margin: 0px auto 28px auto; }
-	#instructions .instruction .copy-one { margin: 0px auto 55px auto; }
+	#instructions .instruction .copy-one { margin: 0px auto 60px auto; }
 	#instructions .leftarrow, #instructions .rightarrow { top: 270px; }
 
-	#about { padding-top: 100px; }
-	#legal { padding-top: 130px; }	
+	#legal { padding-top: 184px; }
+
+	#about { padding-top: 19px; }
+	#about p { font-size: 26px; line-height: 32px; width: 560px; }
+	#about .betalogo { margin-bottom: 34px; }
+	#about .betalogo img { width: 100px; }
 }

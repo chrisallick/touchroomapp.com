@@ -159,8 +159,13 @@ $(document).ready(function() {
 		$("#video").addClass("section-on");
 		$("#footer .links .home").addClass("on");
 
-		$("#videobutton").hide();;
-		$("#howitworksbutton").show();
+		if( $(".break").css("display") == "inline" ) {
+			$("#videobutton").hide();
+			$("#howitworksbutton").show();
+		} else {
+			$("#videobuttonmobile").hide();
+			$("#howitworksbuttonmobile").show();
+		}
 	});
 
 	$(".legal").click(function(event){
