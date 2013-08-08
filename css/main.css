@@ -34,7 +34,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 }
 
 #videobuttonmobile { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 236px; height: 69px; z-index: 100; display: none; }
-#howitworksbuttonmobile { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 236px; height: 69px; z-index: 100; }
+#howitworksbuttonmobile { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 236px; height: 69px; z-index: 100; display: none; }
 #storemobile { position: absolute; top: 0px; right: 0px; width: 236px; height: 69px; z-index: 100; display: none; }
 
 #sections .section { opacity: 0; display: none; }
@@ -148,9 +148,9 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	/*
 		VIDEO PLAYER
 	*/
-	#video { position: relative; margin: 0px auto 50px auto; width: 600px; height: 338px; z-index: 100; }
+	#video { position: relative; margin: 0px auto 0px auto; width: 600px; height: 338px; z-index: 100; }
 	#video img { display: none; }
-	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; }
+	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; padding-top: 180px; }
 
 	#footer { height: 100px; }
 	#footer .links { padding-top: 24px; width: 605px; }
@@ -166,6 +166,8 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#wrapper { width: 640px; height: 640px; }
 
 	#buttons { bottom: 50px; }
+
+	#videocontainer { padding-top: 60px; }
 
 	#instructions { padding-top: 0px; }
 	#instructions .instruction .copy-two { margin: 0px auto 28px auto; }
