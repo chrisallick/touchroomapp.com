@@ -114,14 +114,53 @@ $(document).ready(function() {
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'store']);
 	});
 
+	$("#howitworksbutton").click(function(event){
+		$("#sections .section").removeClass("section-on");
+
+		$("#video").removeClass("section-on");
+		$("#instructions").addClass("section-on");
+		$(this).hide();
+		$("#videobutton").show();
+	});
+
+	$("#howitworksbuttonmobile").click(function(event){
+		$("#sections .section").removeClass("section-on");
+
+		$("#video").removeClass("section-on");
+		$("#instructions").addClass("section-on");
+		$(this).hide();
+		$("#videobuttonmobile").show();
+	});
+
+	$("#videobutton").click(function(){
+		$("#sections .section").removeClass("section-on");
+
+		$("#instructions").removeClass("section-on");
+		$("#video").addClass("section-on");
+		$(this).hide();
+		$("#howitworksbutton").show();
+	});
+
+	$("#videobuttonmobile").click(function(){
+		$("#sections .section").removeClass("section-on");
+
+		$("#instructions").removeClass("section-on");
+		$("#video").addClass("section-on");
+		$(this).hide();
+		$("#howitworksbuttonmobile").show();
+	});
+
 	$(".home").click(function(event){
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'home']);
 		$("#sections .section").removeClass("section-on");
 		$("#footer .links a").removeClass("on");
 
-		$("#instructions").addClass("section-on");
+		$("#video").addClass("section-on");
 		$("#footer .links .home").addClass("on");
+
+		$("#videobutton").hide();;
+		$("#howitworksbutton").show();
 	});
 
 	$(".legal").click(function(event){

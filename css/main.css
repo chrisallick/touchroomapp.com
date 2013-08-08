@@ -7,7 +7,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 @font-face { font-family: 'HN'; src: url('../font/helvetica.neue.ttf'); }
 @font-face { font-family: 'HNB'; src: url('../font/helvetica.neue.bold.ttf'); }
 
--webkit-tap-highlight-color: rgba(0,0,0,0);
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
 /*
 	PARTICLE SYSTEM
@@ -22,7 +22,8 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 
 #buttons { position: absolute; bottom: 0px; left: 347px; width: 312px; height: 43px; }
 
-#videothumb { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 149px; height: 43px; z-index: 100; }
+#videobutton { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 149px; height: 43px; z-index: 100; display: none; }
+#howitworksbutton { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 149px; height: 43px; z-index: 100; }
 #store { position: absolute; top: 0px; right: 0px; width: 149px; height: 43px; z-index: 100; }
 
 #videothumb:active { -webkit-transform: scale(.95,.95);
@@ -32,7 +33,8 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	transition:all .1s ease-in;
 }
 
-#videothumbmobile { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 236px; height: 69px; z-index: 100; display: none; }
+#videobuttonmobile { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 236px; height: 69px; z-index: 100; display: none; }
+#howitworksbuttonmobile { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 236px; height: 69px; z-index: 100; }
 #storemobile { position: absolute; top: 0px; right: 0px; width: 236px; height: 69px; z-index: 100; display: none; }
 
 #sections .section { opacity: 0; display: none; }
@@ -140,8 +142,15 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	
 	#buttons { bottom: 0px; left: 70px; width: 505px; }
 
-	#videothumb, #store { display: none; }
-	#videothumbmobile, #storemobile { display: block; }
+	#videobutton, #store, #videobuttonmobile, #howitworksbutton { display: none; }
+	#howitworksbuttonmobile, #storemobile { display: block; }
+
+	/*
+		VIDEO PLAYER
+	*/
+	#video { position: relative; margin: 0px auto 50px auto; width: 600px; height: 338px; z-index: 100; }
+	#video img { display: none; }
+	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; }
 
 	#footer { height: 100px; }
 	#footer .links { padding-top: 24px; width: 605px; }
