@@ -43,14 +43,28 @@ function previousOrLast() {
 $(window).load(function(){
 	//$("#instructions .on").fadeIn();
 	//nextOrFirst();
-	// 	setTimeout(function(){
-	// 	window.scrollTo(0, 1);
-	// }, 10);
+	setTimeout(function(){
+		window.scrollTo(0, 1);
+	}, 10);
+
+	$("#wrapper").animate({
+		opacity: 1
+	});
 });
 
 var client, count = 0, humans = new Array();
 var iframe;
 $(document).ready(function() {
+
+	$("#wrapper").css({
+		top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height()
+	});
+
+	$(window).resize(function(){
+		$("#wrapper").css({
+			top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height()
+		});		
+	})
 
 	client = new Client( window, {
 		username: "client"+getRandomInt(1,1000),

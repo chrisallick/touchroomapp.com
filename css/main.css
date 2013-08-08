@@ -7,6 +7,8 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 @font-face { font-family: 'HN'; src: url('../font/helvetica.neue.ttf'); }
 @font-face { font-family: 'HNB'; src: url('../font/helvetica.neue.bold.ttf'); }
 
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+
 /*
 	PARTICLE SYSTEM
 */
@@ -16,9 +18,9 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 /*
 	MAIN
 */
-#wrapper { width: 1000px; height: 100%; position: relative; text-align: center; margin: 0 auto; }
+#wrapper { width: 1000px; height: 700px; position: relative; text-align: center; margin: 0 auto; opacity: 0; }
 
-#buttons { position: absolute; bottom: 70px; left: 347px; width: 312px; height: 43px; }
+#buttons { position: absolute; bottom: 0px; left: 347px; width: 312px; height: 43px; }
 
 #videothumb { cursor: pointer; position: absolute; top: 0px; left: 0px; width: 149px; height: 43px; z-index: 100; }
 #store { position: absolute; top: 0px; right: 0px; width: 149px; height: 43px; z-index: 100; }
@@ -64,9 +66,13 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 #instructions { width: 453px; margin: 0 auto; padding-top: 43px; position: relative;  }
 #instructions .instruction { display: none; }
 #instructions .on { display: block; }
-#instructions .instruction .copy-two { width: 453px; font: normal 22px 'GM'; color: #5b5b5b; margin: 0px auto 48px auto; }
-#instructions .instruction .copy-one { width: 453px; font: normal 22px 'GM'; color: #5b5b5b; margin: 0px auto 72px auto; }
-#instructions .visual { display: block; width: 192px; height: 403px; position: absolute; left: 135px; }
+#instructions .instruction p { font: normal 21px 'GM'; color: #5b5b5b; }
+#instructions .instruction .copy-two { margin: 0px auto 48px auto; line-height: 28px; }
+#instructions .instruction .copy-one { margin: 0px auto 76px auto; line-height: 28px; }
+#instructions .instruction .one { width: 293px; }
+#instructions .instruction .two { width: 330px; }
+#instructions .instruction .three { width: 347px; }
+#instructions .visual { display: block; width: 192px; height: 403px; position: absolute; left: 132px; }
 #instructions .leftarrow { cursor: pointer; position: absolute; top: 310px; left: 0px; opacity: .4; }
 #instructions .leftarrow:hover { opacity: 1; }
 #instructions .leftarrow:active { -webkit-transform: scale(.9,.9);
@@ -128,32 +134,35 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	SKINNIES
 */
 @media only screen and (max-width:640px) {
+	body,html { height: 1020px; }
+
 	#wrapper { width: 640px; }
 	
-	#buttons { bottom: 130px; left: 55px; width: 526px; }
+	#buttons { bottom: 0px; left: 70px; width: 505px; }
 
 	#videothumb, #store { display: none; }
 	#videothumbmobile, #storemobile { display: block; }
-	
-	#about { padding-top: 100px; }
-	#legal { padding-top: 200px; }
-	#legal h2 { font-size: 20px; }
 
-	#footer { height: 60px; }
-	#footer .links { padding-top: 15px; width: 456px; }
-	#footer a { font-size: 24px; }
+	#footer { height: 100px; }
+	#footer .links { padding-top: 24px; width: 605px; }
+	#footer a { font-size: 34px; }
 }
 
 /*
 	SHORTIES
 */
-
 @media only screen and (max-height:715px) {
-	#instructions { padding-top: 20px; }
+	body,html { height: 1000px; }
+
+	#wrapper { width: 640px; height: 640px; }
+
+	#buttons { bottom: 50px; }
+
+	#instructions { padding-top: 0px; }
 	#instructions .instruction .copy-two { margin: 0px auto 28px auto; }
-	#instructions .instruction .copy-one { margin: 0px auto 52px auto; }
+	#instructions .instruction .copy-one { margin: 0px auto 55px auto; }
 	#instructions .leftarrow, #instructions .rightarrow { top: 270px; }
 
-	#about { padding-top: 80px; }
-	#legal { padding-top: 200px; }
+	#about { padding-top: 100px; }
+	#legal { padding-top: 130px; }	
 }
