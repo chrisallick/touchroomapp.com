@@ -39,7 +39,6 @@ function previousOrLast() {
 	}
 }
 
-
 $(window).load(function(){
 	//$("#instructions .on").fadeIn();
 	//nextOrFirst();
@@ -76,7 +75,7 @@ $(document).ready(function() {
 	});
 
 	client.addEvent("position","object",function(msg) {
-		console.log( msg );
+		//console.log( msg );
 		if( humans[msg.sid] ) {
 			$("#"+msg.sid).stop().animate({
 				left: msg.x * ( $(document).width() / msg.w ),
@@ -95,6 +94,8 @@ $(document).ready(function() {
 			humans[msg.sid] = msg;
 		}
 	});
+
+	borgs = new Borgs( $(document).width(), $(document).height(), 15 );
 
 	$(document).mousemove(function(e) {
 		count++;
