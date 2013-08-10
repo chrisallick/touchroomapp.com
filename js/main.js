@@ -39,9 +39,7 @@ function previousOrLast() {
 	}
 }
 
-$(window).load(function(){
-	//$("#instructions .on").fadeIn();
-	//nextOrFirst();
+$(window).load(function(){	
 	setTimeout(function(){
 		window.scrollTo(0, 1);
 	}, 10);
@@ -94,9 +92,7 @@ $(document).ready(function() {
 			humans[msg.sid] = msg;
 		}
 	});
-
-	borgs = new Borgs( $(document).width(), $(document).height(), 15 );
-
+	
 	$(document).mousemove(function(e) {
 		count++;
 		if( count == 50 ) {
@@ -110,6 +106,12 @@ $(document).ready(function() {
 			count = 0;
 		}
 	});
+
+	if( $(document).width() < 1600 ) {
+		borgs = new Borgs( $(document).width(), $(document).height(), 15 );	
+	} else {
+		borgs = new Borgs( $(document).width(), $(document).height(), 25 );	
+	}
 
 	$("#store").click(function(event){
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'store']);
