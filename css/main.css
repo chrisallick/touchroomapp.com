@@ -163,7 +163,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 		VIDEO PLAYER
 	*/
 	#video { position: relative; margin: 0px auto 0px auto; width: 600px; height: 338px; z-index: 100; }
-	#video img { display: none; }
+	#video .logo { cursor: pointer; position: absolute; top: 220px; left: 181px; width: 240px; height: 206px; }
 	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; padding-top: 180px; }
 
 	#footer { height: 100px; }
@@ -190,7 +190,8 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 
 	#buttons { bottom: 70px; }
 
-	#videocontainer { padding-top: 60px; }
+	#videocontainer { padding-top: 80px; }
+	#video .logo { top: 120px; }
 
 	#instructions { padding-top: 0px; }
 	#instructions .instruction .copy-one { margin: 0px auto 60px auto; }
