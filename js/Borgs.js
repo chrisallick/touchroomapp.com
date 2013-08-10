@@ -4,23 +4,24 @@ Borgs = function( _w, _h, _num ) {
 
 	this.create = function() {
 		for( var i = 0; i < _num; i++ ) {
-			self.borgs.push( new Borg( i, getRandomInt(50, _w-50 ), getRandomInt( 50, _h-50) ) );
+			if( i < 5 ) {
+				self.borgs.push( new Borg( getRandomInt(50, _w-50 ), getRandomInt( 50, _h-50), 10 ) );
+			} else {
+				self.borgs.push( new Borg( getRandomInt(50, _w-50 ), getRandomInt( 50, _h-50), getRandomInt( 4000, 10000) ) );	
+			}
 		}		
 	}
 
 	self.create();
 }
 
-Borg = function( _i, _x, _y ) {
+Borg = function( _x, _y, _wait ) {
 	var self = this;
 	this.x = _x;
 	this.y = _y;
-	this.index = _i;
 	this.t;
 	this.el = document.createElement("div");
 	this.alive = false;
-
-	console.log( self.x, self.y );
 
 	self.el.className = "borg";
 	$(self.el).css({
@@ -39,17 +40,15 @@ Borg = function( _i, _x, _y ) {
 			});
 		}
 
-		// self.x = self.x + getRandomInt( -500, 500 );
-		// self.y = self.y + getRandomInt( -500, 500 );
 		self.x = getRandomInt( 150, $(document).width()-150 );
 		self.y = getRandomInt( 150, $(document).height()-150 );
 
 		$(self.el).animate({
 			left: self.x,
 			top: self.y,
-		}, getRandomInt( 2000, 4000 ) );
-		self.t = setTimeout( self.update, getRandomInt( 5000, 8000) );
+		}, getRandomInt( 3000, 5000 ) );
+		self.t = setTimeout( self.update, getRandomInt( 6000, 9000) );
 	}
 
-	self.t = setTimeout( self.update, getRandomInt( 5000, 15000) );
+	self.t = setTimeout( self.update, _wait );
 }

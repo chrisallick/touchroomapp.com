@@ -108,10 +108,19 @@ $(document).ready(function() {
 	});
 
 	if( $(document).width() < 1600 ) {
-		borgs = new Borgs( $(document).width(), $(document).height(), 15 );	
-	} else {
-		borgs = new Borgs( $(document).width(), $(document).height(), 25 );	
+		borgs = new Borgs( $(document).width(), $(document).height(), getRandomInt( 9, 15 ) );	
+	} else { 
+		borgs = new Borgs( $(document).width(), $(document).height(), getRandomInt( 19, 24 ) );	
 	}
+
+	$("#video .logo").click(function(){
+		$("#videocontainer").show();
+	});
+
+	$("#videocontainer .close").click(function(){
+		console.log("sup");
+		$("#videocontainer").hide();
+	})
 
 	$("#store").click(function(event){
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'store']);
