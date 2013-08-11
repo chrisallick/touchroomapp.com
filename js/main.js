@@ -51,18 +51,27 @@ function draw(timestamp) {
 	}
 }
 
+function onResizeFinished() {
+	ps.canvas.width = $(document).width();
+	ps.canvas.height = $(document).height();
+	ps.loaded = true;
+}
+
 var client, count = 0, humans = new Array(), ps;
-var iframe;
+var iframe, rt;
 $(document).ready(function() {
 
 	$("#wrapper").css({
 		top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height()
 	});
 
-	$(window).resize(function(){
+	$(window).resize(function() {
+		clearTimeout( rt );
+		ps.loaded = false;
 		$("#wrapper").css({
 			top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height()
-		});		
+		});
+		rt = setTimeout( onResizeFinished, 500 );
 	})
 
 	client = new Client( window, {
