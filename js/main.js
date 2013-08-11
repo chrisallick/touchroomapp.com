@@ -13,11 +13,6 @@ function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function onMessageReceived(e) {
-	var data = JSON.parse(e);
-	console.log( data.event );
-}
-
 function nextOrFirst() {
 	var next = $('#instructions .instruction.on').next(".instruction").length;
 	if( next ) {
@@ -49,7 +44,14 @@ $(window).load(function(){
 	});
 });
 
-var client, count = 0, humans = new Array();
+function draw(timestamp) {
+	if( ps.loaded ) {
+		ps.update(timestamp);
+		ps.render();
+	}
+}
+
+var client, count = 0, humans = new Array(), ps;
 var iframe;
 $(document).ready(function() {
 
@@ -74,23 +76,23 @@ $(document).ready(function() {
 
 	client.addEvent("position","object",function(msg) {
 		//console.log( msg );
-		if( humans[msg.sid] ) {
-			$("#"+msg.sid).stop().animate({
-				left: msg.x * ( $(document).width() / msg.w ),
-				top: msg.y,
-				opacity: .3
-			}, 1500, "easeInOutCubic");
-		} else {
-			$("#humans").append('<div id="'+msg.sid+'" class="human"></div>');
-			$("#"+msg.sid).css({
-				left: msg.x * ( $(document).width() / msg.w ),
-				top: msg.y,
-				opacity: 0
-			}).stop().animate({
-				opacity: .3
-			});
-			humans[msg.sid] = msg;
-		}
+		// if( humans[msg.sid] ) {
+		// 	$("#"+msg.sid).stop().animate({
+		// 		left: msg.x * ( $(document).width() / msg.w ),
+		// 		top: msg.y,
+		// 		opacity: .3
+		// 	}, 1500, "easeInOutCubic");
+		// } else {
+		// 	$("#humans").append('<div id="'+msg.sid+'" class="human"></div>');
+		// 	$("#"+msg.sid).css({
+		// 		left: msg.x * ( $(document).width() / msg.w ),
+		// 		top: msg.y,
+		// 		opacity: 0
+		// 	}).stop().animate({
+		// 		opacity: .3
+		// 	});
+		// 	humans[msg.sid] = msg;
+		// }
 	});
 	
 	$(document).mousemove(function(e) {
@@ -108,10 +110,12 @@ $(document).ready(function() {
 	});
 
 	if( $(document).width() < 1600 ) {
-		borgs = new Borgs( $(document).width(), $(document).height(), getRandomInt( 9, 15 ) );	
+		ps = new ParticleSystem( $(document).width(), $(document).height(), getRandomInt( 9, 15 ) );	
 	} else { 
-		borgs = new Borgs( $(document).width(), $(document).height(), getRandomInt( 19, 24 ) );	
+		ps = new ParticleSystem( $(document).width(), $(document).height(), getRandomInt( 19, 24 ) );	
 	}
+
+	animate();
 
 	$("#video .logo").click(function(){
 		$("#videocontainer").show();
