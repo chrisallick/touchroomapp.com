@@ -113,6 +113,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 #about .section {  }
 #about { margin-bottom: 50px; }
 #about p { width: 448px; margin: 0 auto; text-align: left; margin-bottom: 28px; font: normal 14px 'HN'; color: #5b5b5b; line-height: 19px; }
+#about p a { text-decoration: none; color: #5b5b5b; }
 
 /*
 	LEGAL
@@ -133,6 +134,14 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 #footer .last { margin-right: 0px; }
 #footer .on { opacity: 1; }
 #footer a:hover { opacity: 1; }
+
+/*
+	COPYRIGHT
+*/
+#copyright { position: fixed; bottom: 5px; left: 15px; width: 215px; height: 25px; background-color: #E6E6E6; z-index: 110; color: #bbb }
+#copyright p { text-align: center; font: normal 12px 'HNB'; }
+
+#copyright_mobile { display: none; }
 
 /*
 	SKINNIES
@@ -166,7 +175,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 		VIDEO PLAYER
 	*/
 	#video { position: relative; margin: 0px auto 0px auto; width: 600px; height: 338px; z-index: 100; }
-	#video .logo { cursor: pointer; position: absolute; top: 220px; left: 181px; width: 240px; height: 206px; }
+	#video .logo { cursor: pointer; position: absolute; top: 220px; left: 139px; width: 320px; height: 275px; }
 	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; padding-top: 180px; }
 
 	#footer { height: 100px; }
@@ -181,16 +190,19 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#about p { font-size: 26px; line-height: 32px; width: 560px; }
 	#about .betalogo { margin-bottom: 34px; }
 	#about .betalogo img { width: 100px; height: 100px; }
+
+	#copyright { display: none; }
+	#copyright_mobile { display: block; position: fixed; bottom: 0px; left: 0px; width: 100%; height: 22px; background-color: #E6E6E6; z-index: 110; color: #bbb }
+	#copyright_mobile p { text-align: center; font: normal 12px 'HNB'; }
 }
 
 @media only screen and (max-height:715px) {
 	#wrapper { width: 640px; height: 680px; }
 
-	#buttons { bottom: 70px; left: 164px; }
+	#buttons { bottom: 70px; left: 70px; }
 
 
 	#video { position: relative; margin: 0px auto 0px auto; width: 600px; height: 338px; z-index: 100; }
-	#video .logo { cursor: pointer; position: absolute; top: 220px; left: 181px; width: 240px; height: 206px; }
 	#videocontainer { position: absolute; top: 0px; left: 0px; width: 600px; height: 338px; padding-top: 120px; }
 	#videocontainer .close { top: 122px; }
 }
@@ -206,7 +218,7 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#buttons { bottom: 70px; }
 
 	#videocontainer { padding-top: 80px; }
-	#video .logo { top: 120px; }
+	#video .logo { top: 130px; }
 
 	#instructions { padding-top: 0px; }
 	#instructions .instruction .copy-one { margin: 0px auto 60px auto; }
@@ -217,5 +229,4 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#about { padding-top: 19px; }
 	#about p { font-size: 26px; line-height: 32px; width: 560px; }
 	#about .betalogo { margin-bottom: 34px; }
-	
 }
