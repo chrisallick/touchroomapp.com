@@ -217,5 +217,5 @@ html, body { width: 100%; height: 100%; background-color: #FFFEF2; }
 	#about { padding-top: 19px; }
 	#about p { font-size: 26px; line-height: 32px; width: 560px; }
 	#about .betalogo { margin-bottom: 34px; }
-	#about .betalogo img { width: 100px; }
+	#about .betalogo img { width: 100px; height: 100px; }
 }
