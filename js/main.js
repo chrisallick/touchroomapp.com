@@ -94,7 +94,7 @@ $(document).ready(function() {
 
 	$(window).resize(function(){
 		$("#wrapper").css({
-			top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height()
+			top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height() + 26
 		});		
 	})
 
