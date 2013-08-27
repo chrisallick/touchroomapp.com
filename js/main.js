@@ -1,3 +1,37 @@
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+function onYouTubeIframeAPIReady() {
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+	ready = true;
+	playVideo();
+}
+
+function onPlayerStateChange(event) {
+
+}
+
+function stopVideo() {
+	if( ready ) {
+		player.stopVideo();
+	}
+}
+
+function pauseVideo() {
+	if( ready ) {
+		player.pauseVideo();
+	}
+}
+
+function playVideo() {
+	if( ready ) {
+		player.seekTo(0);
+		player.playVideo();
+	}
+}
+
 /**
  * Returns a random number between min and max
  */
@@ -50,7 +84,7 @@ $(window).load(function(){
 });
 
 var client, count = 0, humans = new Array();
-var iframe;
+var player, done, ready = false;
 $(document).ready(function() {
 
 	$("#wrapper").css({
@@ -92,6 +126,13 @@ $(document).ready(function() {
 			humans[msg.sid] = msg;
 		}
 	});
+
+	// 2. This code loads the IFrame Player API code asynchronously.
+	var tag = document.createElement('script');
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	
 	$(document).mousemove(function(e) {
 		count++;
@@ -115,18 +156,33 @@ $(document).ready(function() {
 
 	$("#video .logo").click(function(){
 		$("#videocontainer").show();
+		if( !ready ) {
+			player = new YT.Player('player', {
+		  		height: '960',
+		  		width: '540',
+		  		videoId: 'mCSd9GA0ndc',
+		  		events: {
+		    		'onReady': onPlayerReady,
+		    		'onStateChange': onPlayerStateChange
+		  		}
+			});
+		} else {
+			playVideo();
+		}
 	});
 
 	$("#videocontainer .close").click(function(){
-		console.log("sup");
 		$("#videocontainer").hide();
+		pauseVideo();
 	})
 
 	$("#store").click(function(event){
+		pauseVideo();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'store']);
 	});
 
 	$("#howitworksbutton").click(function(event){
+		pauseVideo();
 		$("#sections .section").removeClass("section-on");
 
 		$("#video").removeClass("section-on");
@@ -136,6 +192,7 @@ $(document).ready(function() {
 	});
 
 	$("#howitworksbuttonmobile").click(function(event){
+
 		$("#sections .section").removeClass("section-on");
 
 		$("#video").removeClass("section-on");
@@ -145,6 +202,7 @@ $(document).ready(function() {
 	});
 
 	$("#videobutton").click(function(){
+		playVideo();
 		$("#sections .section").removeClass("section-on");
 
 		$("#instructions").removeClass("section-on");
@@ -154,6 +212,7 @@ $(document).ready(function() {
 	});
 
 	$("#videobuttonmobile").click(function(){
+		playVideo();
 		$("#sections .section").removeClass("section-on");
 
 		$("#instructions").removeClass("section-on");
@@ -163,6 +222,7 @@ $(document).ready(function() {
 	});
 
 	$(".home").click(function(event){
+		pauseVideo();
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'home']);
 		$("#sections .section").removeClass("section-on");
@@ -181,6 +241,7 @@ $(document).ready(function() {
 	});
 
 	$(".legal").click(function(event){
+		pauseVideo();
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'legal']);
 		$("#sections .section").removeClass("section-on");
@@ -191,6 +252,7 @@ $(document).ready(function() {
 	});
 
 	$(".about").click(function(event){
+		pauseVideo();
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'about']);
 		$("#sections .section").removeClass("section-on");
@@ -201,14 +263,17 @@ $(document).ready(function() {
 	});
 
 	$(".contact").click(function(event){
+		pauseVideo();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'contact']);
 	});
 
 	$("#instructions .leftarrow").click(function(event){
+		pauseVideo();
 		previousOrLast();
 	});
 
 	$("#instructions .rightarrow").click(function(event){
+		pauseVideo();
 		nextOrFirst();
 	});
 
