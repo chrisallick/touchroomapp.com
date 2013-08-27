@@ -51,7 +51,6 @@ function getRandomInt (min, max) {
 
 function onMessageReceived(e) {
 	var data = JSON.parse(e);
-	console.log( data.event );
 }
 
 function nextOrFirst() {
@@ -105,11 +104,10 @@ $(document).ready(function() {
 		host: "54.214.250.91",
 		port: "8882",
 		secure: false,
-		debug: true
+		debug: false
 	});
 
 	client.addEvent("position","object",function(msg) {
-		//console.log( msg );
 		if( humans[msg.sid] ) {
 			$("#"+msg.sid).stop().animate({
 				left: msg.x * ( $(document).width() / msg.w ),

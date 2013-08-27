@@ -58,7 +58,6 @@ Client = function( _p, _options ) {
     }
 
     this.connect = function() {
-        console.log( self.ws_url );
         if ("WebSocket" in window) {
             self.connection = new ReconnectingWebSocket( self.ws_url );
             //self.connection = new WebSocket( self.ws_url );
@@ -87,9 +86,7 @@ Client = function( _p, _options ) {
             if( msg["type"] == "welcome" ) {
                 self.onWelcome( msg );
             } else if( msg["type"] == "register" && msg["sid"] != self.sid ) {
-                console.log("another player joined");
             } else if( msg["type"] == "leave") {
-                console.log("another player left");
             } else if( msg["type"] == "ping" ) {
                 self.onPing();
             } else if( msg["sid"] && msg["sid"] != self.sid ) {
