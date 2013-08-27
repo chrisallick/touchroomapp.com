@@ -1,36 +1,38 @@
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-function onYouTubeIframeAPIReady() {
-}
+// // 3. This function creates an <iframe> (and YouTube player)
+// //    after the API code downloads.
+// function onYouTubeIframeAPIReady() {
 
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-	ready = true;
-	playVideo();
-}
+// }
 
-function onPlayerStateChange(event) {
+// // 4. The API will call this function when the video player is ready.
+// function onPlayerReady(event) {
+// 	ready = true;
+// 	playVideo();
+// }
 
-}
+// function onPlayerStateChange(event) {
 
-function stopVideo() {
-	if( ready ) {
-		player.stopVideo();
-	}
-}
+// }
 
-function pauseVideo() {
-	if( ready ) {
-		player.pauseVideo();
-	}
-}
+// function stopVideo() {
+// 	if( ready && $(document).width() > 680 ) {
+// 	} else {
+// 		$("#player").remove();
+// 	}
+// }
 
-function playVideo() {
-	if( ready ) {
-		player.seekTo(0);
-		player.playVideo();
-	}
-}
+// function pauseVideo() {
+// 	if( ready && $(document).width() > 680 ) {
+// 		player.pauseVideo();
+// 	}
+// }
+
+// function playVideo() {
+// 	if( ready && $(document).width() > 680  ) {
+// 		player.seekTo(0);
+// 		player.playVideo();
+// 	}
+// }
 
 /**
  * Returns a random number between min and max
@@ -85,8 +87,8 @@ $(window).load(function(){
 
 var client, count = 0, humans = new Array();
 var player, done, ready = false;
+var mobile = false;
 $(document).ready(function() {
-
 	$("#wrapper").css({
 		top: ($(document).height()/2 - $("#wrapper").height()/2) - $("#footer").height()
 	});
@@ -156,53 +158,46 @@ $(document).ready(function() {
 
 	$("#video .logo").click(function(){
 		$("#videocontainer").show();
-		if( !ready ) {
-			player = new YT.Player('player', {
-		  		height: '960',
-		  		width: '540',
-		  		videoId: 'mCSd9GA0ndc',
-		  		events: {
-		    		'onReady': onPlayerReady,
-		    		'onStateChange': onPlayerStateChange
-		  		}
-			});
-		} else {
-			playVideo();
-		}
+		$("#player").attr("src","http://www.youtube.com/embed/mCSd9GA0ndc?autoplay=1");
 	});
 
-	$("#videocontainer .close").click(function(){
+	$("#videocontainer .close").click(function() {
+		$("#player").attr("src","");
 		$("#videocontainer").hide();
-		pauseVideo();
 	})
 
 	$("#store").click(function(event){
-		pauseVideo();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'store']);
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
 	$("#howitworksbutton").click(function(event){
-		pauseVideo();
 		$("#sections .section").removeClass("section-on");
 
 		$("#video").removeClass("section-on");
 		$("#instructions").addClass("section-on");
 		$(this).hide();
 		$("#videobutton").show();
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
 	$("#howitworksbuttonmobile").click(function(event){
-
 		$("#sections .section").removeClass("section-on");
 
 		$("#video").removeClass("section-on");
 		$("#instructions").addClass("section-on");
 		$(this).hide();
 		$("#videobuttonmobile").show();
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
 	$("#videobutton").click(function(){
-		playVideo();
 		$("#sections .section").removeClass("section-on");
 
 		$("#instructions").removeClass("section-on");
@@ -211,8 +206,7 @@ $(document).ready(function() {
 		$("#howitworksbutton").show();
 	});
 
-	$("#videobuttonmobile").click(function(){
-		playVideo();
+	$("#videobuttonmobile").click(function() {
 		$("#sections .section").removeClass("section-on");
 
 		$("#instructions").removeClass("section-on");
@@ -221,8 +215,7 @@ $(document).ready(function() {
 		$("#howitworksbuttonmobile").show();
 	});
 
-	$(".home").click(function(event){
-		pauseVideo();
+	$(".home").click(function(event) {
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'home']);
 		$("#sections .section").removeClass("section-on");
@@ -238,10 +231,12 @@ $(document).ready(function() {
 			$("#videobuttonmobile").hide();
 			$("#howitworksbuttonmobile").show();
 		}
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
-	$(".legal").click(function(event){
-		pauseVideo();
+	$(".legal").click(function(event) {
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'legal']);
 		$("#sections .section").removeClass("section-on");
@@ -249,31 +244,36 @@ $(document).ready(function() {
 
 		$("#legal").addClass("section-on");
 		$("#footer .links .legal").addClass("on");
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
 	$(".about").click(function(event){
-		pauseVideo();
 		event.preventDefault();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'about']);
 		$("#sections .section").removeClass("section-on");
 		$("#footer .links a").removeClass("on");
 
 		$("#about").addClass("section-on");
-		$("#footer .links .about").addClass("on");		
+		$("#footer .links .about").addClass("on");
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
 	$(".contact").click(function(event){
-		pauseVideo();
 		_gaq.push(['_trackEvent', 'landingPage', 'click', 'contact']);
+
+		$("#player").attr("src","");
+		$("#videocontainer").hide();
 	});
 
 	$("#instructions .leftarrow").click(function(event){
-		pauseVideo();
 		previousOrLast();
 	});
 
 	$("#instructions .rightarrow").click(function(event){
-		pauseVideo();
 		nextOrFirst();
 	});
 
